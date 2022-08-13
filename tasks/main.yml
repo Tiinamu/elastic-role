@@ -23,8 +23,9 @@
       extra_opts: [--strip-components=1]
       creates: "{{ elastic_home }}/bin/elasticsearch"
     tags:
-      - skip_ansible_lint
+#      - skip_ansible_lint
       - elastic
+    when: not ansible_check_mode
   - name: Set environment Elastic
     become: yes
     template:
